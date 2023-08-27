@@ -1,0 +1,41 @@
+.notifications {
+  width: 600px;
+  min-height: 840px;
+  margin: auto;
+  margin-top: 30px;
+}
+.notifications_header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.not_heading {
+}
+.not_body{
+    height: 570px;
+}
+.notifications_footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  margin-top: 20px;
+}
+.footer_icons{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-size: 14px;
+}
+.footer_icons>div{
+  cursor: pointer;
+}
+.notifications_footer>div>div:hover{
+  text-decoration: underline;
+}
+.high:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
