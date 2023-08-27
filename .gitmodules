@@ -1,11 +1,13 @@
 [submoudle "Instagram-clone-frontend"]
     path = Instagram-clone-frontend
     url=https://github.com/Garv2003/Instagram-clone-frontend
-
+...
 [submoudle "Instagram-clone-backend"]
     path = Instagram-clone-backend
     url=https://github.com/Garv2003/Instagram-clone-backend
+...
 
-[submoudle "Instagram-Clone-Socket"]
-    path = Instagram-Clone-Socket
+[submoudle "socket"]
+    path = socket
     url=https://github.com/Garv2003/Instagram-Clone-Socket
+...
