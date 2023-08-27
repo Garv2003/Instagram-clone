@@ -1,10 +1,10 @@
-[submoudle "server"]
-    path = server
-    url=https://github.com/Garv2003/Instagram-clone-backend
-
 [submoudle "frontend"]
     path = frontend
     url=https://github.com/Garv2003/Instagram-clone-frontend
+
+[submoudle "server"]
+    path = server
+    url=https://github.com/Garv2003/Instagram-clone-backend
 
 [submoudle "socket"]
     path = socket
