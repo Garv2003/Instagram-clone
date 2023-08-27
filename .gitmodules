@@ -1,0 +1,7 @@
+[submodule "server"]
+    path = server
+    url =https://github.com/Garv2003/Instagram-clone-backend
+
+[submodule "socket"]
+    path = socket
+    url =https://github.com/Garv2003/Instagram-Clone-Socket
