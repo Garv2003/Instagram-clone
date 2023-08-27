@@ -1,13 +1,11 @@
-[submoudle "client"]
+[submodule "client"]
     path = client
     url=https://github.com/Garv2003/Instagram-clone-frontend
-...
-[submoudle "server"]
+
+[submodule "server"]
     path = server
     url=https://github.com/Garv2003/Instagram-clone-backend
-...
 
-[submoudle "socket"]
+[submodule "socket"]
     path = socket
     url=https://github.com/Garv2003/Instagram-Clone-Socket
-...
