@@ -1,0 +1,30 @@
+.profile_footer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.profile_footer12{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.smalldiv{
+    cursor: pointer;
+}
+
+.smalldiv:hover{
+    text-decoration: underline;
+}
+
+@media screen and (max-width:750px){
+    .profile_footer{
+        display: none;
+    }
+}

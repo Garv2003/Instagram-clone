@@ -1,0 +1,139 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  border-right: 0.2px solid gray;
+  width: 16%;
+}
+.navlist {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.logo {
+  width: 120px;
+  margin: 30px;
+}
+.navbarbuttons {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+.navbutton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: 0;
+  border: 0;
+  margin: 5px 10px 10px 10px;
+  padding: 10px 15px 10px 15px;
+  border-radius: 8px;
+  width: 85%;
+  color: inherit;
+}
+.logo2 {
+  display: none;
+}
+.navbutton:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.128);
+  transform: scale(1.05);
+}
+.navbutton:active {
+  background-color: rgb(255, 255, 255, 0.02);
+  transform: scale(0.95);
+}
+.navbutton > span {
+  font-size: 17px;
+  font-weight: bolder;
+  margin-left: 10px;
+}
+.navbutton_more {
+  width: 100%;
+}
+.navbutton_more > button > span {
+  font-size: 17px;
+  font-weight: bolder;
+  margin-left: 10px;
+  color: white;
+}
+.profile_image {
+  border: 1px solid gray;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+@media screen and (max-width: 1260px) {
+  .navbar {
+    width: fit-content;
+    padding: 16px;
+  }
+  .logo {
+    display: none;
+  }
+  .navbutton {
+    margin: 5px 0px 5px 0px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+  }
+  .logo2 {
+    display: block;
+  }
+
+  .navbutton > span {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .navbar {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    width: 100vw;
+    border: none;
+    border-top: 0.5px solid gray;
+  }
+  .navbarbuttons {
+    flex-direction: row;
+  }
+  .navbutton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: 0;
+    border: 0;
+    margin: 0px;
+    padding: 10px 0px 10px 0px;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .logo2 {
+    display: none;
+  }
+  .hiddenicon {
+    display: none;
+  }
+
+  .navbutton:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.128);
+    transform: scale(1.05);
+  }
+  .navbutton:active {
+    background-color: rgb(255, 255, 255, 0.02);
+    transform: scale(0.95);
+  }
+
+  .navbutton_more {
+    display: none;
+  }
+}
+
+.icon {
+  font-size: 25px;
+  color: inherit;
+}
