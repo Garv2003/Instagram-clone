@@ -7,9 +7,7 @@ import Bar from "../components/Bar";
 import PropType from "prop-types";
 import { RotatingLines } from "react-loader-spinner";
 import { Link } from "react-router-dom";
-import LazyLoad from "react-lazy-load";
-
-const API_URL = import.meta.env.VITE_APP_BACKEND_URL;
+import Img from "../components/Img";
 
 const Notifications = ({ setProgress }) => {
   const [user, setuser] = useState([]);
@@ -28,7 +26,7 @@ const Notifications = ({ setProgress }) => {
     try {
       setProgress(20);
       axios
-        .get(`${API_URL}/user/suggestion`, {
+        .get(`${import.meta.env.VITE_APP_BACKEND_URL}/user/suggestion`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: localStorage.getItem("token"),
@@ -47,7 +45,7 @@ const Notifications = ({ setProgress }) => {
     try {
       setProgress(20);
       axios
-        .get(`${API_URL}/user/notifications`, {
+        .get(`${import.meta.env.VITE_APP_BACKEND_URL}/user/notifications`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: localStorage.getItem("token"),
@@ -92,13 +90,11 @@ const Notifications = ({ setProgress }) => {
                       <div className="username__left">
                         <Link to={`/sp/${post._id}`} className="avatar cl">
                           {post.profileImage ? (
-                            <LazyLoad>
-                              <img
-                                className="postprofileimage"
-                                src={post.user.profileImage}
-                                alt="profile"
-                              />
-                            </LazyLoad>
+                            <Img
+                              className="postprofileimage"
+                              src={post.user.profileImage}
+                              alt="profile"
+                            />
                           ) : (
                             <Icon
                               name="RxAvatar"

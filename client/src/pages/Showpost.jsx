@@ -14,7 +14,7 @@ import PropTypes from "prop-types";
 import UsePrev from "../Hooks/UsePrev";
 import { RotatingLines } from "react-loader-spinner";
 import { Icon } from "../utils/iconutitls";
-import LazyLoad from "react-lazy-load";
+import Img from "../components/Img";
 
 const Showpost = ({ setProgress }) => {
   const { id } = useParams();
@@ -350,13 +350,11 @@ const Showpost = ({ setProgress }) => {
             />
           </div>
           {post.User_id.profileImage ? (
-            <LazyLoad>
-              <img
-                className="postprofileimage"
-                src={post.User_id.profileImage}
-                alt="profile"
-              />
-            </LazyLoad>
+            <Img
+              className="postprofileimage"
+              src={post.User_id.profileImage}
+              alt="profile"
+            />
           ) : (
             <Icon
               name="IoPersonCircleSharp"
@@ -405,9 +403,7 @@ const Showpost = ({ setProgress }) => {
         <div className="showpost1">
           <div className="im">
             {post.type === "image" ? (
-              <LazyLoad>
-                <img src={post.ImageUrl} alt="Post" />
-              </LazyLoad>
+              <Img src={post.ImageUrl} alt="Post" />
             ) : (
               <div className="video__container">
                 {VideoPlayer}
@@ -446,13 +442,11 @@ const Showpost = ({ setProgress }) => {
           >
             <div className="postp_header_pro">
               {post.User_id.profileImage ? (
-                <LazyLoad>
-                  <img
-                    className="postprofileimage"
-                    src={post.User_id.profileImage}
-                    alt="profile"
-                  />
-                </LazyLoad>
+                <Img
+                  className="postprofileimage"
+                  src={post.User_id.profileImage}
+                  alt="profile"
+                />
               ) : (
                 <Icon
                   name="IoPersonCircleSharp"

@@ -8,6 +8,7 @@ import PropType from "prop-types";
 import { UseSocket } from "../Context/Socket/SocketContext";
 import { RotatingLines } from "react-loader-spinner";
 import TypeAnimation from "./TypeAnimation/TypeAnimation";
+import Img from "./Img";
 
 const MessageBody = ({ info, setInfo }) => {
   const { Id } = UseAuth();
@@ -17,8 +18,8 @@ const MessageBody = ({ info, setInfo }) => {
   const [Status, setStatus] = useState("Not Active");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [skip, setSkip] = useState(0);
-  const [total, setTotal] = useState(0);
+  // const [skip, setSkip] = useState(0);
+  // const [total, setTotal] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const [EmojiBox, setEmojiBox] = useState(false);
   const { socket } = UseSocket();
@@ -174,7 +175,7 @@ const MessageBody = ({ info, setInfo }) => {
             <div className="messagestatus">
               <Link to={`/sp/${info._id}`} className="avatar">
                 {info.profileImage ? (
-                  <img
+                  <Img
                     className="postprofileimage"
                     src={info.profileImage}
                     alt="Profile"

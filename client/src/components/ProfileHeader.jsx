@@ -6,7 +6,7 @@ import { RotatingLines } from "react-loader-spinner";
 import { toast } from "react-toastify";
 import PropType from "prop-types";
 import { UseAuth } from "../Context/Auth/AuthContext";
-import LazyLoad from "react-lazy-load";
+import Img from "./Img";
 import { Icon } from "../utils/iconutitls";
 
 const ProfileHeader = ({ User, length, followers, following }) => {
@@ -133,9 +133,7 @@ const ProfileHeader = ({ User, length, followers, following }) => {
           <div className="profile-pic">
             <div className="profileloader">
               {profileImage ? (
-                <LazyLoad>
-                  <img onClick={onPhoto} src={profileImage} alt="profile" />
-                </LazyLoad>
+                <Img src={profileImage} alt="profile" onClick={onPhoto} />
               ) : (
                 <button className="photobtn" disabled={loading}>
                   <Icon

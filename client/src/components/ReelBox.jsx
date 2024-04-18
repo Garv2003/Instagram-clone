@@ -8,7 +8,7 @@ import UseFollow from "../Hooks/UseFollow";
 import UseComment from "../Hooks/UseComment";
 import { formatInstagramDate } from "../utils/utils";
 import PropTypes from "prop-types";
-import LazyLoad from "react-lazy-load";
+import Img from "./Img";
 import { Icon } from "../utils/iconutitls";
 
 const Post = ({ post }) => {
@@ -132,13 +132,11 @@ const Post = ({ post }) => {
             }}
           >
             {post.User_id.profileImage ? (
-              <LazyLoad height={40} offset={100}>
-                <img
-                  className="postprofileimage"
-                  src={post.User_id.profileImage}
-                  alt="profile"
-                />
-              </LazyLoad>
+              <Img
+                src={post.User_id.profileImage}
+                alt="profile"
+                className="postprofileimage"
+              />
             ) : (
               <Icon
                 name="RxAvatar"

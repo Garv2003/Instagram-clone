@@ -10,8 +10,8 @@ import { useNavigate } from "react-router-dom";
 import Picker from "emoji-picker-react";
 import Right from "../assets/Right_Logo.png";
 import { Icon } from "../utils/iconutitls";
+import Img from "../components/Img";
 import { toast } from "react-toastify";
-import LazyLoad from "react-lazy-load";
 
 const Create = ({ setProgress }) => {
   document.title = "Create new Post • Instagram";
@@ -75,7 +75,7 @@ const Create = ({ setProgress }) => {
   const VideoPlayer = useMemo(() => {
     if (!file) return null;
     return (
-      <LazyLoad style={{ height: "100%" }} className="preview_sub_left">
+      <div style={{ height: "100%" }} className="preview_sub_left">
         <video
           src={URL.createObjectURL(file)}
           alt="preview"
@@ -84,7 +84,7 @@ const Create = ({ setProgress }) => {
           ref={video}
           onClick={playVideo}
         />
-      </LazyLoad>
+      </div>
     );
   }, [file]);
 
@@ -242,13 +242,11 @@ const Create = ({ setProgress }) => {
             )}
             {success && (
               <div className="success">
-                <LazyLoad>
-                  <img
-                    src={Right}
-                    alt="Success"
-                    style={{ width: "100px", height: "100px" }}
-                  />
-                </LazyLoad>
+                <Img
+                  src={Right}
+                  alt="Success"
+                  style={{ width: "100px", height: "100px" }}
+                />
                 <div>{success}</div>
               </div>
             )}
@@ -284,16 +282,13 @@ const Create = ({ setProgress }) => {
               <div className="preview">
                 <div className="preview_left">
                   {type === "image" ? (
-                    <LazyLoad
-                      style={{ height: "100%" }}
-                      className="preview_sub_left"
-                    >
-                      <img
+                    <div className="preview_sub_left">
+                      <Img
                         src={URL.createObjectURL(file)}
                         alt="preview"
                         className="preview_image"
                       />
-                    </LazyLoad>
+                    </div>
                   ) : (
                     <>
                       {VideoPlayer}
@@ -333,13 +328,11 @@ const Create = ({ setProgress }) => {
                   >
                     <div>
                       {info.profileImage ? (
-                        <LazyLoad>
-                          <img
-                            className="postprofileimage"
-                            src={info.profileImage}
-                            alt="profile"
-                          />
-                        </LazyLoad>
+                        <Img
+                          src={info.profileImage}
+                          alt="profile"
+                          className="postprofileimage"
+                        />
                       ) : (
                         <Icon
                           name="RxAvatar"

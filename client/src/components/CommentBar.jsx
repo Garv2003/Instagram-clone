@@ -5,7 +5,7 @@ import { AuthContext } from "../Context/Auth/AuthContext";
 import axios from "axios";
 import { Icon } from "../utils/iconutitls";
 import PropTypes from "prop-types";
-import LazyLoad from "react-lazy-load";
+import Img from "./Img";
 
 const CommentBar = ({
   comment,
@@ -16,8 +16,8 @@ const CommentBar = ({
   const { Id } = useContext(AuthContext);
   const [like, setLike] = useState(comment.likes.includes(Id));
   const [likecount, setLikeCount] = useState(comment.likes.length);
-  const [ReplyArr, setReplyArr] = useState(comment.replies);
-  const [ReplyLength, setReplyLength] = useState(comment.replies.length);
+  // const [ReplyArr, setReplyArr] = useState(comment.replies);
+  // const [ReplyLength, setReplyLength] = useState(comment.replies.length);
 
   const handletoggleLikeComment = async (action) => {
     try {
@@ -55,13 +55,11 @@ const CommentBar = ({
       <div className="comment">
         <div>
           {comment.postedby.profileImage ? (
-            <LazyLoad>
-              <img
-                className="postprofileimage"
-                src={comment.postedby.profileImage}
-                alt="profile"
-              />
-            </LazyLoad>
+            <Img
+              src={comment.postedby.profileImage}
+              className="postprofileimage"
+              alt="profile"
+            />
           ) : (
             <Icon
               name="RxAvatar"
@@ -108,11 +106,11 @@ const CommentBar = ({
                 </button>
               ) : null}
             </div>
-            {ReplyLength > 0 ? (
+            {/* {ReplyLength > 0 ? (
               <div className="comment_reply">
                 -- View all {ReplyLength} replies
               </div>
-            ) : null}
+            ) : null} */}
           </div>
           {like ? (
             <Icon

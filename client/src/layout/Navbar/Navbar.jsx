@@ -6,6 +6,7 @@ import InstagramLogo from "../../assets/instagram-logo.png";
 import { Icon } from "../../utils/iconutitls";
 import PropType from "prop-types";
 import { UseAuth } from "../../Context/Auth/AuthContext";
+import Img from "../../components/Img";
 
 // import { UseTheme } from "../../Context/Theme/ThemeContext";
 
@@ -23,6 +24,44 @@ const NavigationButton = ({ icon, text, to }) => {
   );
 };
 
+const NavBarItems = [
+  {
+    icon: <Icon name="GrHomeRounded" className="icon" />,
+    text: "Home",
+    to: "/",
+  },
+  {
+    icon: <Icon name="IoSearch" className="icon" />,
+    text: "Search",
+    to: "/search",
+  },
+  {
+    icon: <Icon name="MdOutlineExplore" className="icon" />,
+    text: "Explore",
+    to: "/explore",
+  },
+  {
+    icon: <Icon name="BiSolidMoviePlay" className="icon" />,
+    text: "Reels",
+    to: "/Reels",
+  },
+  {
+    icon: <Icon name="RiMessengerLine" className="icon" />,
+    text: "Messages",
+    to: "/message",
+  },
+  {
+    icon: <Icon name="FaRegHeart" className="icon" />,
+    text: "Notifications",
+    to: "/notifications",
+  },
+  {
+    icon: <Icon name="BsPlusSquare" className="icon" />,
+    text: "Create",
+    to: "/create",
+  },
+];
+
 const Navbar = ({ width }) => {
   const [open, setOpen] = useState(false);
   const { info } = UseAuth();
@@ -31,7 +70,7 @@ const Navbar = ({ width }) => {
     <div className="navbar" style={width <= 770 ? { display: "none" } : {}}>
       <div className="navlist">
         <Link to="/">
-          <img className="logo" src={InstagramLogo} alt="Instagram Logo" />
+          <Img src={InstagramLogo} className="logo" alt="Instagram Logo" />
           <div className="navbutton logo2">
             {" "}
             <Icon
@@ -41,47 +80,21 @@ const Navbar = ({ width }) => {
           </div>
         </Link>
         <div className="navbarbuttons">
-          <NavigationButton
-            icon={<Icon name="GrHomeRounded" className="icon" />}
-            text="Home"
-            to="/"
-          />
-          <NavigationButton
-            icon={<Icon name="IoSearch" className="icon" />}
-            text="Search"
-            to="/search"
-          />
-          <NavigationButton
-            icon={<Icon name="MdOutlineExplore" className="icon" />}
-            text="Explore"
-            to="/explore"
-          />
-          <NavigationButton
-            icon={<Icon name="BiSolidMoviePlay" className="icon" />}
-            text="Reels"
-            to="/Reels"
-          />
-          <NavigationButton
-            icon={<Icon name="RiMessengerLine" className="icon" />}
-            text="Messages"
-            to="/message"
-          />
-          <NavigationButton
-            icon={<Icon name="FaRegHeart" className="icon" />}
-            text="Notifications"
-            to="/notifications"
-          />
-          <NavigationButton
-            icon={<Icon name="BsPlusSquare" className="icon" />}
-            text="Create"
-            to="/create"
-          />
+          {NavBarItems.map((item) => (
+            <NavigationButton
+              key={item.text}
+              icon={item.icon}
+              text={item.text}
+              to={item.to}
+            />
+          ))}
           <Link to="/profile" className="navbutton cl">
             {info.profileImage ? (
-              <img
+              <Img
                 src={info.profileImage}
-                alt="profile"
                 className="profile_image"
+                alt="profile"
+                width="30px"
               />
             ) : (
               <Icon name="CgProfile" className="icon" id="pro_icon" />
@@ -105,6 +118,8 @@ NavigationButton.propTypes = {
   icon: PropType.element,
   text: PropType.string,
   to: PropType.string,
+  img: PropType.bool,
+  src: PropType.string,
 };
 
 Navbar.propTypes = {

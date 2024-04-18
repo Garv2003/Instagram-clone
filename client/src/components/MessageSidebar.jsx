@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/Auth/AuthContext";
 import { TailSpin } from "react-loader-spinner";
 import { Icon } from "../utils/iconutitls";
-import LazyLoad from "react-lazy-load";
+import Img from "./Img";
 
 const MessageSidebar = ({ user, handleData, loading, error }) => {
   const { info } = React.useContext(AuthContext);
@@ -69,13 +69,11 @@ const MessageSidebar = ({ user, handleData, loading, error }) => {
                   <div className="username__left">
                     <Link to={`/sp/${post._id}`} className="avatar cl">
                       {post.profileImage ? (
-                        <LazyLoad height={50} offset={100}>
-                          <img
-                            className="postprofileimage"
-                            src={post.profileImage}
-                            alt="profile"
-                          />
-                        </LazyLoad>
+                        <Img
+                          src={post.profileImage}
+                          className="postprofileimage"
+                          alt="profile"
+                        />
                       ) : (
                         <Icon name="RxAvatar" className="postprofileimage" />
                       )}

@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
 import { Icon } from "../utils/iconutitls";
 import propTypes from "prop-types";
-import LazyLoad from "react-lazy-load";
+import Img from "./Img";
 
 const Profile = ({ data }) => {
   return (
     <div className="gallery">
       {data.map((post) => {
         return (
-          <LazyLoad className="gallery-item" key={post._id}>
+          <div className="gallery-item" key={post._id}>
             <>
               {post.type === "image" ? (
-                <img className="gallery-post" src={post.ImageUrl} />
+                <Img src={post.ImageUrl} className="gallery-post" alt="post" />
               ) : (
                 <video className="gallery-post" src={post.ImageUrl} />
               )}
@@ -37,7 +37,7 @@ const Profile = ({ data }) => {
                 </div>
               </Link>
             </>
-          </LazyLoad>
+          </div>
         );
       })}
     </div>

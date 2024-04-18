@@ -11,7 +11,7 @@ import UseFollow from "../Hooks/UseFollow";
 import PropType from "prop-types";
 import UsePrev from "../Hooks/UsePrev";
 import { RotatingLines } from "react-loader-spinner";
-import LazyLoad from "react-lazy-load";
+import Img from "../components/Img";
 
 const Profile = ({ setProgress }) => {
   const { id } = useParams();
@@ -83,9 +83,7 @@ const Profile = ({ setProgress }) => {
               <div className="profile-pic">
                 <div className="profileloader">
                   {user.profileImage ? (
-                    <LazyLoad>
-                      <img src={user.profileImage} alt="profile" />
-                    </LazyLoad>
+                    <Img src={user.profileImage} alt="profile" />
                   ) : (
                     <button className="photobtn">
                       <Icon

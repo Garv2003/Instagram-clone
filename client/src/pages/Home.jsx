@@ -8,6 +8,7 @@ import SmallNavbar from "../layout/SmallNavbar/SmallNavbar";
 import Right_Logo from "../assets/Right_Logo.png";
 import PropTypes from "prop-types";
 import { RotatingLines } from "react-loader-spinner";
+import Img from "../components/Img";
 
 const Home = ({ setProgress }) => {
   const [user, setuser] = useState([]);
@@ -72,7 +73,7 @@ const Home = ({ setProgress }) => {
             {!loading && (
               <div className="caught_up">
                 <div className="caught_img">
-                  <img src={Right_Logo} alt="" />
+                  <Img src={Right_Logo} alt="right" />
                 </div>
                 <h3>You&apos;re all caught up</h3>
                 <span>You&apos;ve seen all new posts</span>

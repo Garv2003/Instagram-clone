@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import "./Login/Login.css";
 import { useEffect } from "react";
 import { Icon } from "../utils/iconutitls";
-
 import { RotatingLines } from "react-loader-spinner";
 import PropType from "prop-types";
 import UseLogin from "../Hooks/UseLogin";

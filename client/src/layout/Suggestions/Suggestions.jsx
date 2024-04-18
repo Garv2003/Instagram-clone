@@ -6,6 +6,7 @@ import { RotatingLines } from "react-loader-spinner";
 import PropType from "prop-types";
 import UseLogin from "../../Hooks/UseLogin";
 import { UseAuth } from "../../Context/Auth/AuthContext";
+import Img from "../../components/Img";
 
 function Suggestions(props) {
   const { info } = UseAuth();
@@ -80,9 +81,9 @@ function Suggestions(props) {
             <div className="username__left">
               <Link to="/profile" className="avatar cl">
                 {info.profileImage ? (
-                  <img
-                    className="postprofileimage"
+                  <Img
                     src={info.profileImage}
+                    className="postprofileimage"
                     alt="profile"
                   />
                 ) : (

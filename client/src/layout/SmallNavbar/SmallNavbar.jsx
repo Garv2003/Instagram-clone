@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./SmallNavbar.css";
 import { Icon } from "../../utils/iconutitls";
 import PropType from "prop-types";
+import Img from "../../components/Img";
 
 const NavigationButton = ({ icon, to }) => {
   return (
@@ -17,16 +18,17 @@ const SmallNavbar = () => {
       <div className="backgroundblur"></div>
       <div className="smallnavbar">
         <Link to="/">
-          <img
-            className="smalllogo"
+          <Img
             src="https://www.pngkey.com/png/full/828-8286178_mackeys-work-needs-no-elaborate-presentation-or-distracting.png"
+            className="smalllogo"
             alt="Instagram Logo"
           />
         </Link>
         <div className="smallnavbarbuttons">
           <NavigationButton
             icon={
-              <Icon name="IoSearch"
+              <Icon
+                name="IoSearch"
                 style={{
                   width: "25px",
                   height: "25px",
@@ -37,7 +39,8 @@ const SmallNavbar = () => {
           />
           <NavigationButton
             icon={
-              <Icon name="FaRegHeart"
+              <Icon
+                name="FaRegHeart"
                 style={{
                   width: "25px",
                   height: "25px",
