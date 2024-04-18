@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
-import Navbar from "../layout/Navbar/Navbar";
+import { Navbar, Suggestions, SmallNavbar } from "../layout";
+import { Img, Post } from "../components";
 import axios from "axios";
-import Post from "../components/Post";
-import Suggestions from "../layout/Suggestions/Suggestions";
 import InfiniteScroll from "react-infinite-scroll-component";
-import SmallNavbar from "../layout/SmallNavbar/SmallNavbar";
 import Right_Logo from "../assets/Right_Logo.png";
 import PropTypes from "prop-types";
 import { RotatingLines } from "react-loader-spinner";
-import Img from "../components/Img";
 
 const Home = ({ setProgress }) => {
   const [user, setuser] = useState([]);

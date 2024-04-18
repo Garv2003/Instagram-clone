@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-import ProfileBar from "../components/ProfileBar";
-import Navbar from "../layout/Navbar/Navbar";
+import { ProfileBar, Bar, Img } from "../components";
+import { Navbar } from "../layout";
 import axios from "axios";
 import { Icon } from "../utils/iconutitls";
-import Bar from "../components/Bar";
 import PropType from "prop-types";
 import { RotatingLines } from "react-loader-spinner";
 import { Link } from "react-router-dom";
-import Img from "../components/Img";
 
 const Notifications = ({ setProgress }) => {
   const [user, setuser] = useState([]);

@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
-import ProfileHeader from "../components/ProfileHeader";
-import ProfileFooter from "../layout/ProfileFooter/ProfileFooter";
+import { ProfileHeader, Savedpost, NoPost } from "../components";
+import { ProfileFooter, Navbar } from "../layout";
 import { NavLink, Route, Routes } from "react-router-dom";
-import Navbar from "../layout/Navbar/Navbar";
-import Savedpost from "../components/Savedpost";
-import NoPost from "../components/NoPost";
 import PropType from "prop-types";
 import { UseAuth } from "../Context/Auth/AuthContext";
-const API_URL = import.meta.env.VITE_APP_BACKEND_URL;
 import axios from "axios";
 import { RotatingLines } from "react-loader-spinner";
 import { Icon } from "../utils/iconutitls";
@@ -30,11 +26,14 @@ const Profile = ({ setProgress }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${API_URL}/post/profile`, {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        });
+        const response = await axios.get(
+          `${import.meta.env.VITE_APP_BACKEND_URL}/post/profile`,
+          {
+            headers: {
+              Authorization: localStorage.getItem("token"),
+            },
+          }
+        );
         const responseData = response.data;
         setData(responseData[1]);
         setSavedpost(responseData[0].savedpost);

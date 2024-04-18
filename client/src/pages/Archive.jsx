@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import Navbar from "../layout/Navbar/Navbar";
-import ProfileFooter from "../layout/ProfileFooter/ProfileFooter";
+import { Navbar, ProfileFooter } from "../layout";
 import { Icon } from "../utils/iconutitls";
 import { Link } from "react-router-dom";
 import PropType from "prop-types";

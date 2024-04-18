@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import "./Login.css";
 import { useEffect } from "react";
-import ProfileFooter from "../../layout/ProfileFooter/ProfileFooter";
+import { ProfileFooter } from "../../layout";
 import { Icon } from "../../utils/iconutitls";
 import { RotatingLines } from "react-loader-spinner";
 import PropType from "prop-types";
 import UseLogin from "../../Hooks/UseLogin";
+import "./Login.css";
 function Login({ setProgress }) {
   const {
     username,

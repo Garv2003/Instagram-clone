@@ -1,16 +1,15 @@
 import { useEffect, useRef, useState, useMemo } from "react";
-import Navbar from "../layout/Navbar/Navbar";
+import { Navbar } from "../layout";
+import { Img } from "../components";
 import { ColorRing } from "react-loader-spinner";
 import UsePrev from "../Hooks/UsePrev";
 import PropType from "prop-types";
-// import { useDropzone } from "react-dropzone";
 import { UseAuth } from "../Context/Auth/AuthContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Picker from "emoji-picker-react";
 import Right from "../assets/Right_Logo.png";
 import { Icon } from "../utils/iconutitls";
-import Img from "../components/Img";
 import { toast } from "react-toastify";
 
 const Create = ({ setProgress }) => {

@@ -6,7 +6,7 @@ import { RotatingLines } from "react-loader-spinner";
 import PropType from "prop-types";
 import UseLogin from "../Hooks/UseLogin";
 
-function Signup({ setProgress }) {
+function SignUp({ setProgress }) {
   const {
     username,
     password,
@@ -180,8 +180,8 @@ function Signup({ setProgress }) {
   );
 }
 
-Signup.propTypes = {
+SignUp.propTypes = {
   setProgress: PropType.func.isRequired,
 };
 
-export default Signup;
+export default SignUp;

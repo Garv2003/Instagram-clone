@@ -48,6 +48,11 @@
   font-weight: bolder;
   margin-left: 10px;
 }
+
+.navbutton > span.lazy-load-image-background {
+  display: block;
+}
+
 .navbutton_more {
   width: 100%;
 }

@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import MessageBody from "../components/MessageBody";
-import MessageSidebar from "../components/MessageSidebar";
+import { MessageBody, MessageSidebar } from "../components";
+import { Navbar } from "../layout";
 import { Icon } from "../utils/iconutitls";
-import Navbar from "../layout/Navbar/Navbar";
 import PropType from "prop-types";
 import UseResize from "../Hooks/UseResize";
-const API_URL = import.meta.env.VITE_APP_BACKEND_URL;
 
 const Messages = ({ setProgress }) => {
   const [info, setInfo] = useState(null);
@@ -40,7 +38,7 @@ const Messages = ({ setProgress }) => {
     try {
       setLoading(true);
       axios
-        .get(`${API_URL}/user/suggestion`, {
+        .get(`${import.meta.env.VITE_APP_BACKEND_URL}/user/suggestion`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: localStorage.getItem("token"),

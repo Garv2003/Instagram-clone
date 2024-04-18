@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import ReelBox from "../components/ReelBox";
-import Navbar from "../layout/Navbar/Navbar";
+import { ReelBox, Bar } from "../components";
+import { Navbar } from "../layout";
 import axios from "axios";
-import Bar from "../components/Bar";
 import PropType from "prop-types";
 import { RotatingLines } from "react-loader-spinner";
 import { Icon } from "../utils/iconutitls";

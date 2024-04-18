@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import Navbar from "../layout/Navbar/Navbar";
-import ProfileBar from "../components/ProfileBar";
-import Bar from "../components/Bar";
+import { Navbar } from "../layout";
+import { ProfileBar, Bar } from "../components";
 import { MagnifyingGlass } from "react-loader-spinner";
 import PropTypes from "prop-types";
 import axios from "axios";

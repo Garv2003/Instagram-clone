@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import ProfileFooter from "../layout/ProfileFooter/ProfileFooter";
-import Savedpost from "../components/Savedpost";
-import Navbar from "../layout/Navbar/Navbar";
+import { Navbar, ProfileFooter } from "../layout";
+import { Savedpost, Bar } from "../components";
 import axios from "axios";
-import Bar from "../components/Bar";
 import PropType from "prop-types";
 import { RotatingLines } from "react-loader-spinner";
 import { Icon } from "../utils/iconutitls";

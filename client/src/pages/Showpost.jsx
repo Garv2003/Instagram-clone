@@ -3,18 +3,19 @@ import { useEffect, useState, useRef, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { UseAuth } from "../Context/Auth/AuthContext";
 import { formatInstagramDate } from "../utils/utils";
-import CommentBar from "../components/CommentBar";
+import { CommentBar, Img } from "../components";
+import {
+  UsePrev,
+  UseFollow,
+  UseLike,
+  UseBookMark,
+  UseComment,
+  UseShowPost,
+} from "../Hooks";
 import Picker from "emoji-picker-react";
-import UseFollow from "../Hooks/UseFollow";
-import UseLike from "../Hooks/UseLike";
-import UseBookMark from "../Hooks/UseBookMark";
-import UseComment from "../Hooks/UseComment";
-import UseShowPost from "../Hooks/UseShowPost";
 import PropTypes from "prop-types";
-import UsePrev from "../Hooks/UsePrev";
 import { RotatingLines } from "react-loader-spinner";
 import { Icon } from "../utils/iconutitls";
-import Img from "../components/Img";
 
 const Showpost = ({ setProgress }) => {
   const { id } = useParams();
@@ -403,7 +404,8 @@ const Showpost = ({ setProgress }) => {
         <div className="showpost1">
           <div className="im">
             {post.type === "image" ? (
-              <Img src={post.ImageUrl} alt="Post" />
+              // <img src={post.ImageUrl} alt="Post" className="immg" />
+              <Img src={post.ImageUrl} alt="Post" className="immg" />
             ) : (
               <div className="video__container">
                 {VideoPlayer}

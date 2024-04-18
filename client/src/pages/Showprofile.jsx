@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
-import ProfileFooter from "../layout/ProfileFooter/ProfileFooter";
 import { Route, Routes, NavLink, useParams } from "react-router-dom";
-import Navbar from "../layout/Navbar/Navbar";
-import Savedpost from "../components/Savedpost";
-import axios from "axios";
+import { Navbar, ProfileFooter } from "../layout";
+import { Savedpost, NoPost, Img } from "../components";
 import { AuthContext } from "../Context/Auth/AuthContext";
-import NoPost from "../components/NoPost";
 import { Icon } from "../utils/iconutitls";
-import UseFollow from "../Hooks/UseFollow";
-import PropType from "prop-types";
-import UsePrev from "../Hooks/UsePrev";
+import { UseFollow, UsePrev } from "../Hooks";
 import { RotatingLines } from "react-loader-spinner";
-import Img from "../components/Img";
+import PropType from "prop-types";
+import axios from "axios";
 
 const Profile = ({ setProgress }) => {
   const { id } = useParams();

@@ -1,9 +1,12 @@
 import { useState, lazy, Suspense } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
+import Proptype from "prop-types";
+import { TailSpin } from "react-loader-spinner";
+import { ToastContainer } from "react-toastify";
+import logo from "./assets/logo.png";
+import { Login, SignUp } from "./pages";
 const Home = lazy(() => import("./pages/Home"));
-import Login from "./pages/Login/Login";
-import SignUp from "./pages/Signup";
 const Profile = lazy(() => import("./pages/Profile"));
 const Explore = lazy(() => import("./pages/Explore"));
 const Reels = lazy(() => import("./pages/Reels"));
@@ -15,11 +18,6 @@ const Setting = lazy(() => import("./pages/Setting"));
 const Notifications = lazy(() => import("./pages/Notifications"));
 const Search = lazy(() => import("./pages/Search"));
 const Showprofile = lazy(() => import("./pages/Showprofile"));
-import Proptype from "prop-types";
-import { TailSpin } from "react-loader-spinner";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import logo from "./assets/logo.png";
 
 const App = () => {
   const [progress, setProgress] = useState(0);
