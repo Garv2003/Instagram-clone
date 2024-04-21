@@ -1,12 +1,11 @@
 import { useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import Popup from "../../components/Popup";
 import InstagramLogo from "../../assets/instagram-logo.png";
 import { Icon } from "../../utils/iconutitls";
 import PropType from "prop-types";
 import { UseAuth } from "../../Context/Auth/AuthContext";
-import Img from "../../components/Img";
+import { Img, Popup } from "../../components";
 
 // import { UseTheme } from "../../Context/Theme/ThemeContext";
 

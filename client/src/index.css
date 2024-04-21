@@ -5,6 +5,20 @@
   font-family: sans-serif;
 }
 
+:root {
+  --color-background: #ffffff;
+  --color-primary: #2d9cdb;
+  --color-secondary: #f0f2f5;
+  --color-tertiary: #f0f2f5;
+  --color-quaternary: #f0f2f5;
+
+  --color-text: #000000;
+
+  --scroll-background: #f0f2f5;
+  --scroll-thumb: #c4cfdb;
+  --scroll-hover: #616263;
+}
+
 body,
 html {
   width: 100%;
@@ -13,8 +27,22 @@ html {
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  background-color: #000000;
-  color: white;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+body.dark {
+  --color-background: #090909;
+  --color-primary: #2d9cdb;
+  --color-secondary: #121212;
+  --color-tertiary: #1f1f1f;
+  --color-quaternary: #333;
+
+  --color-text: #dadada;
+
+  --scroll-background: #121212;
+  --scroll-thumb: #323232;
+  --scroll-hover: #555;
 }
 
 a {
@@ -23,12 +51,11 @@ a {
 }
 
 .icon {
-  color: white;
+  color: inherit;
   font-size: 3rem;
   cursor: pointer;
 }
 
-/* input, */
 button {
   font-family: inherit;
   font-size: inherit;
@@ -40,16 +67,16 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  background: #121212;
+  background: var(--scroll-background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #323232;
+  background: var(--scroll-thumb);
   border-radius: 50px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: ;
 }
 
 @media screen and (max-width: 770px) {

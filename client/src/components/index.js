@@ -14,6 +14,7 @@ import { default as ReelBox } from "./ReelBox.jsx";
 import { default as Savedpost } from "./Savedpost.jsx";
 import { default as Settingpopup } from "./Settingpopup.jsx";
 import { default as UpdatePost } from "./UpdatePost.jsx";
+import { default as ToggleButton } from "./ToggleButton.jsx";
 
 export {
   CreateLoader,
@@ -32,4 +33,5 @@ export {
   Savedpost,
   Settingpopup,
   UpdatePost,
+  ToggleButton,
 };

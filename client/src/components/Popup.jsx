@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import PropTypes from "prop-types";
 import { Icon } from "../utils/iconutitls";
+import ToggleButton from "./ToggleButton";
 
 const Popup = ({ onClose }) => {
   const handlelogout = () => {
@@ -69,6 +70,7 @@ const Popup = ({ onClose }) => {
               />
               Switch appearance
             </button>
+            <ToggleButton />
           </div>
           <div className="popup2">
             <div className="popup_items">Switch accounts</div>
