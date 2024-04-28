@@ -3,7 +3,6 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 import Proptype from "prop-types";
 import { TailSpin } from "react-loader-spinner";
-import { ToastContainer } from "react-toastify";
 import logo from "./assets/logo.png";
 import { Login, SignUp } from "./pages";
 const Home = lazy(() => import("./pages/Home"));
@@ -18,6 +17,9 @@ const Setting = lazy(() => import("./pages/Setting"));
 const Notifications = lazy(() => import("./pages/Notifications"));
 const Search = lazy(() => import("./pages/Search"));
 const Showprofile = lazy(() => import("./pages/Showprofile"));
+const ProfileSaved = lazy(() => import("./pages/ProfileSaved"));
+const ProfileReels = lazy(() => import("./pages/ProfileReels"));
+const ProfileLayout = lazy(() => import("./layout/ProfileLayout"));
 
 const App = () => {
   const [progress, setProgress] = useState(0);
@@ -76,18 +78,6 @@ const App = () => {
         progress={progress}
         height={3}
       />
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={true}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
       <Routes>
         <Route
           exact
@@ -119,17 +109,36 @@ const App = () => {
           }
         />
         <Route
-          path="/profile/*"
+          path="/profile"
           element={
             <ProtectedRoute
               element={
                 <Suspense fallback={<LoadingPage />}>
-                  <Profile setProgress={setProgress} />
+                  <ProfileLayout setProgress={setProgress} />
                 </Suspense>
               }
             />
           }
-        />
+        >
+          <Route index element={<Profile />} />
+          <Route
+            path="saved"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <ProfileSaved />
+              </Suspense>
+            }
+          />
+          <Route
+            path="reels"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <ProfileReels />
+              </Suspense>
+            }
+          />
+        </Route>
+
         <Route
           path="/explore"
           element={
