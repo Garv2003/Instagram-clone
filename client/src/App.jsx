@@ -1,7 +1,6 @@
 import { useState, lazy, Suspense } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
-import Proptype from "prop-types";
 import { TailSpin } from "react-loader-spinner";
 import logo from "./assets/logo.png";
 import { Login, SignUp } from "./pages";
@@ -20,17 +19,10 @@ const Showprofile = lazy(() => import("./pages/Showprofile"));
 const ProfileSaved = lazy(() => import("./pages/ProfileSaved"));
 const ProfileReels = lazy(() => import("./pages/ProfileReels"));
 const ProfileLayout = lazy(() => import("./layout/ProfileLayout"));
+import ProtectedRoute from "./layout/ProtectedRoute";
 
 const App = () => {
   const [progress, setProgress] = useState(0);
-  const ProtectedRoute = ({ element }) => {
-    const isAuthenticated = localStorage.getItem("token");
-    return isAuthenticated ? element : <Navigate to="/login" />;
-  };
-
-  ProtectedRoute.propTypes = {
-    element: Proptype.element.isRequired,
-  };
 
   const LoadingPage = () => {
     return (
@@ -96,170 +88,125 @@ const App = () => {
             </Suspense>
           }
         />
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <Home setProgress={setProgress} />
-                </Suspense>
-              }
-            />
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <ProtectedRoute
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <ProfileLayout setProgress={setProgress} />
-                </Suspense>
-              }
-            />
-          }
-        >
-          <Route index element={<Profile />} />
+        <Route element={<ProtectedRoute />}>
           <Route
-            path="saved"
+            exact
+            index
             element={
               <Suspense fallback={<LoadingPage />}>
-                <ProfileSaved />
+                <Home setProgress={setProgress} />
               </Suspense>
             }
           />
           <Route
-            path="reels"
+            path="/profile"
             element={
               <Suspense fallback={<LoadingPage />}>
-                <ProfileReels />
+                <ProfileLayout setProgress={setProgress} />
+              </Suspense>
+            }
+          >
+            <Route index element={<Profile />} />
+            <Route
+              path="saved"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <ProfileSaved />
+                </Suspense>
+              }
+            />
+            <Route
+              path="reels"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <ProfileReels />
+                </Suspense>
+              }
+            />
+          </Route>
+
+          <Route
+            path="/explore"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Explore setProgress={setProgress} />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/reels"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Reels setProgress={setProgress} />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/p/:id/"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Showpost setProgress={setProgress} />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/create"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Create setProgress={setProgress} />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/message"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Messages setProgress={setProgress} />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/archive/stories/"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Archive setProgress={setProgress} />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/accounts/edit"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Setting setProgress={setProgress} />
+              </Suspense>
+            }
+          />
+          <Route path="/updatepost" />
+          <Route
+            path="/notifications"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Notifications setProgress={setProgress} />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/search"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Search setProgress={setProgress} />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/sp/:id/*"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Showprofile setProgress={setProgress} />
               </Suspense>
             }
           />
         </Route>
-
-        <Route
-          path="/explore"
-          element={
-            <ProtectedRoute
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <Explore setProgress={setProgress} />
-                </Suspense>
-              }
-            />
-          }
-        />
-        <Route
-          path="/reels"
-          element={
-            <ProtectedRoute
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <Reels setProgress={setProgress} />
-                </Suspense>
-              }
-            />
-          }
-        />
-        <Route
-          path="/p/:id/"
-          element={
-            <ProtectedRoute
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <Showpost setProgress={setProgress} />
-                </Suspense>
-              }
-            />
-          }
-        />
-        <Route
-          path="/create"
-          element={
-            <ProtectedRoute
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <Create setProgress={setProgress} />
-                </Suspense>
-              }
-            />
-          }
-        />
-        <Route
-          path="/message"
-          element={
-            <ProtectedRoute
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <Messages setProgress={setProgress} />
-                </Suspense>
-              }
-            />
-          }
-        />
-        <Route
-          path="/archive/stories/"
-          element={
-            <ProtectedRoute
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <Archive setProgress={setProgress} />
-                </Suspense>
-              }
-            />
-          }
-        />
-        <Route
-          path="/accounts/edit"
-          element={
-            <ProtectedRoute
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <Setting setProgress={setProgress} />
-                </Suspense>
-              }
-            />
-          }
-        />
-        <Route path="/updatepost" />
-        <Route
-          path="/notifications"
-          element={
-            <ProtectedRoute
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <Notifications setProgress={setProgress} />
-                </Suspense>
-              }
-            />
-          }
-        />
-        <Route
-          path="/search"
-          element={
-            <ProtectedRoute
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <Search setProgress={setProgress} />
-                </Suspense>
-              }
-            />
-          }
-        />
-        <Route
-          path="/sp/:id/*"
-          element={
-            <ProtectedRoute
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <Showprofile setProgress={setProgress} />
-                </Suspense>
-              }
-            />
-          }
-        />
       </Routes>
     </>
   );
